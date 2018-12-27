@@ -1,0 +1,6 @@
+<!--pages/me/me.wxml-->
+<view>
+<text>this is me</text>
+  <map longitude="115.114736" latitude="33.399099" >
+  </map>
+</view>
