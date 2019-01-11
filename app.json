@@ -1,8 +1,11 @@
 {
   "pages": [
+    "pages/products/product",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/swiper/swiper",
+    "pages/web/web",
+    "pages/camera/camera"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,26 +16,26 @@
   "tabBar": {
     "color": "#ef07d8",
     "selectedColor": "#000000",
-    "borderStyle":"white",
-    "position":"bottom",
+    "borderStyle": "white",
+    "position": "bottom",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/products/product",
         "text": "首页",
         "iconPath": "resource/icons/beforeClick/balloon.png",
-        "selectedIconPath":"resource/icons/afterClick/balloon.png"
+        "selectedIconPath": "resource/icons/afterClick/balloon.png"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "日志",
-        "iconPath":"resource/icons/beforeClick/bag.png",
+        "pagePath": "pages/swiper/swiper",
+        "text": "swiper",
+        "iconPath": "resource/icons/beforeClick/bag.png",
         "selectedIconPath": "resource/icons/afterClick/bag.png"
       },
       {
-        "pagePath":"pages/me/me",
-        "text":"我的",
-        "iconPath":"resource/icons/beforeClick/tree.png",
-        "selectedIconPath":"resource/icons/afterClick/tree.png"
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "resource/icons/beforeClick/tree.png",
+        "selectedIconPath": "resource/icons/afterClick/tree.png"
       }
     ]
   }

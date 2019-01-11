@@ -20,3 +20,28 @@
   margin-top: 200px;
 }
 
+.submitButton{
+  background-color: red;
+  
+}
+
+.loadButton{
+  background-color: blue;
+}
+
+.icons{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+.picselected{
+  width: 300rpx;
+  height: 300rpx;
+  display: block;
+}
+
+button{margin: 10px}
+

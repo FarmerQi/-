@@ -1,18 +1,28 @@
-// pages/me/me.js
+// pages/camera/camera.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    src:'../../resource/icons/scan/scan.png'
   },
 
+  takePhoto:function(){
+    this.ctx.takePhoto({
+      quality:'high',
+      success:(res) => {
+        this.setData({
+          src: res.tempImagePath
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.ctx = wx.createCameraContext(this)
   },
 
   /**

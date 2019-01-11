@@ -1,6 +1,45 @@
 <!--pages/me/me.wxml-->
-<view>
-<text>this is me</text>
-  <map longitude="115.114736" latitude="33.399099" >
+<view class='container'>
+<text id='title'>this is me</text>
+  <map class='demoMap' longitude="115.114736" latitude="33.399099" >
   </map>
 </view>
+
+    <form>
+    <view class="section section_gap">
+      <view class='section__title'>switch</view>
+      <switch name="switch"></switch>
+    </view>
+
+    <view class="section section_gap">
+      <view class='section__title'>slider</view>
+      <slider name="slider" min='0' max='1000' step='1' show-value
+       backgroundColor='#808080'
+       activeColor='#1E90FF'></slider>
+    </view>
+
+    <view class='section section_gap'>
+      <view class='section__title'>input</view>
+      <input name="input" placeholder='阿心真帅'></input>
+    </view>
+
+    <view class='section section_gap'>
+      <view class='section__title'>radio</view>
+      <radio-group name="radio-group">
+        <label>
+          <radio value='radio1'></radio>radio1
+        </label>
+        <label>
+          <radio value='radio2'></radio>radio2
+        </label>
+      </radio-group>
+    </view>
+
+  </form >
+
+<view class='weui-footer'>
+    <view class='weui-footer__links'>
+    <navigator url='https://www.baidu.com' class='weui-footer__link'>MyPeppa</navigator>
+    </view>
+    <view class='weui-footer_text'>Copyright © 阿心</view>
+  </view>

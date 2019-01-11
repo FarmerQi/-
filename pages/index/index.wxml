@@ -7,13 +7,22 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+  <view style='flex-direction:row'>
+    <button class="submitButton" >{{confirmButton}}</button>
+    <button class="loadButton"  loading='true' plain='true'
+    bindtap='scanQR'>{{exitButton}}</button>
+    <image class='icons' bindtap='scanQRAndLoadPage' src='{{imageSrc}}'></image>
+    <image class='icons' src='{{paySrc}}' mode='scaleToFit' bindtap='loadNewPage'></image>
+    <image class='icons' src='{{pic}}' mode='scaleToFit' bindtap='choosePic'></image>
+    
+  </view>
 
-  
-  
+  <view class='picselected'>
+    <image class='picselected' src='{{picPath}}' mode='scaleToFit'></image>
+  </view>
 
-  
-  
+
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <text class="user-motto" >{{motto}}</text>
   </view>
 </view>

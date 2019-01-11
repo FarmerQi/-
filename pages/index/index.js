@@ -7,12 +7,39 @@ Page({
     motto: '阿心',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    confirmButton:'再见',
+    exitButton:'loading',
+    imageSrc:'../../resource/icons/scan/scan.png',
+    paySrc: '../../resource/icons/pay/alipay.png',
+    pic: '../../resource/icons/pic/pic.png',
+    picPath: '../../resource/icons/pic/picNotFound.png'
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
+    })
+  },
+  choosePic:function(){
+    var picThis = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album','camera'],
+      success: function(res) {
+        console.log(res.tempFiles)
+        var picSize = res.tempFiles[0].size
+        var picPath = res.tempFiles[0].path
+        var picSizeFormatted = picSize/1024;
+        picThis.setData({
+            picPath: picPath,
+            motto: picSizeFormatted.toFixed(2) + ' byte',
+        })
+      },
+      fail: function(){
+        
+      }
     })
   },
   onLoad: function () {
@@ -49,6 +76,32 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  scanQR:function(e){
+    var myThis = this;
+    wx.scanCode({
+      success(res){
+        console.log(res)
+        myThis.setData({
+          motto: res.result,
+        })
+      }
+    })
+  },
+  scanQRAndLoadPage:function(e){
+    var myThis = this;
+    wx.scanCode({
+      success(res){
+        wx.navigateTo({
+          url: '../web/web?url=' + res.result,
+        })
+      }
+    })
+  },
+  loadNewPage:function(e){
+    wx.navigateTo({
+      url: '../camera/camera',
     })
   }
 })

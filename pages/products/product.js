@@ -1,11 +1,11 @@
-// pages/me/me.js
+// pages/products/product.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+
   },
 
   /**

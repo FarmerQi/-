@@ -1,1 +1,17 @@
 /* pages/me/me.wxss */
+@import "/lib/weui.wxss";
+
+.demoMap{
+  width: 720rpx;
+  height: 720rpx;
+  padding: 10rpx;
+  margin-right: auto;
+  margin-left: auto
+}
+
+#title{
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  color:red;
+}
