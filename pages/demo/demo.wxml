@@ -45,6 +45,20 @@
   <block>
     <view class='pic'></view>
   </block>
+  <block>
+    <view class='pic'></view>
+  </block>
+  <block>
+    <view class='pic'></view>
+  </block>
+  <block>
+    <view class='pic'></view>
+  </block>
+  <block>
+    <view class='addButton'>
+      <view class='addButtonInput'> </view>
+    </view>
+  </block>
   </view>
 </view>
 
