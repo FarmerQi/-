@@ -1,0 +1,22 @@
+/* pages/demo/demo.wxss */
+@import '/lib/weui.wxss';
+
+.grids{
+  width: 100%;
+}
+
+.picContainer{
+  margin: auto;
+  width: 625rpx;
+  display: flex;
+  flex-wrap: wrap;
+  background: red;
+}
+
+.pic{
+  float: left;
+  margin: 5rpx;
+  width: 200rpx;
+  height: 200rpx;
+  background: skyblue;
+}
