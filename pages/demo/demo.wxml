@@ -1,65 +1,28 @@
 <!--pages/demo/demo.wxml-->
-<text>pages/demo/demo.wxml</text>
 <view class='weui-cells'>
       <view class='weui-cell'>
             <view class='weui-cell__bd'>
-                  <view class='weui-uploader'>
-                        <view class='weui-uploader__hd'>
-                            <view class='weui-uploader__tittle'>车辆图片</view>
-                            <view class='weui-uploader__info'></view>
-                        </view>
-                        <view class='weui-uploader__bd'>
-                            <view class='weui-uploader_files'>
-                              <block wx:for="{{photos}}" wx:for-item="image">
-                                    <view class='weui-uploader__file'>
-                                          <image class='weui-uploader__img' src='{{image.src}}' data-src='{{image}}' bindtap='previewImage'></image>
-                                    </view>
-                              </block>  
-                            </view>
-                        </view>
-                        <view class='weui-uploader__input-box'>
-                            <view class='weui-uploader__input' bindtap='chooseImage'></view>
-                        </view>
-
+              <view class='weui-uploader__hd'>
+                  <view class='weui-uploader__tittle'>车辆图片</view>
+                  <view class='weui-uploader__info'></view>
+              </view>
+              <view class='grids'>
+                  <view class='picContainer'>
+                    <block wx:for="{{photos}}" wx:for-item="image" wx:key="*this">
+                      <view class='pic'>
+                        <image class='grid-image' src='{{image.src}}' mode='aspectFill'></image>
+                      </view>
+                    </block>
+                    <block>
+                      <view class='addButton'  bindtap='chooseImage'>
+                        <view class='addButtonInput'> </view>
+                      </view>
+                    </block>
                   </view>
+                </view>
             </view>
       </view>
 </view>
 
-
-
-<view class='grids'>
-  <view class='picContainer'>
-  <block>
-    <view class='pic'></view>
-  </block>
-  <block>
-    <view class='pic'></view>
-  </block>
-  <block>
-    <view class='pic'></view>
-  </block>
-  <block>
-    <view class='pic'></view>
-  </block>
-  <block>
-    <view class='pic'></view>
-  </block>
-  <block>
-    <view class='pic'></view>
-  </block>
-  <block>
-    <view class='pic'></view>
-  </block>
-  <block>
-    <view class='pic'></view>
-  </block>
-  <block>
-    <view class='addButton'>
-      <view class='addButtonInput'> </view>
-    </view>
-  </block>
-  </view>
-</view>
 
 
