@@ -10,7 +10,7 @@
                   <view class='picContainer'>
                     <block wx:for="{{photos}}" wx:for-item="image" wx:key="*this">
                       <view class='pic'>
-                        <image class='grid-image' src='{{image.src}}' mode='aspectFill'></image>
+                        <image class='grid-image' src='{{image}}' mode='aspectFill' data-src="{{image}}" bindtap='previewImage'></image>
                       </view>
                     </block>
                     <block>

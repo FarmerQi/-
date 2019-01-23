@@ -77,9 +77,10 @@ Page({
         success: function(res) {
           var tempFilePaths = res.tempFilePaths;
           for(var i = 0; i < tempFilePaths.length; i++){
-            items.push({
-              src:tempFilePaths[i]
-            })
+            console.log(tempFilePaths[i])
+            items.push(
+              tempFilePaths[i]
+            )
           }
           myThis.setData({
             photos:items
@@ -88,11 +89,13 @@ Page({
       })
    },
    previewImage:function(e){
-     var current = e.target.dataset.src
+     console.log(e);
+     var current = e.currentTarget.dataset.src;
      wx.previewImage({
-       current:current,
+       current: current,
        urls: this.data.photos,
      })
+     console.log(this.data.photos)
    }
 
    
