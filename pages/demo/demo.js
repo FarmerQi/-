@@ -5,8 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+      animation:{},
       photos:[],
       hidden:true,
+      tapLock:false,
   },
 
   /**
@@ -20,7 +22,12 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.animation = wx.createAnimation({
+      duration:500,
+      timingFunction: 'ease',
+      
+    })
+    
   },
 
   /**
@@ -90,6 +97,10 @@ Page({
       })
    },
    previewImage:function(e){
+     if(this.data.tapLock){
+       return;
+     }
+     console.log("这是tap")
      console.log(e);
      console.log(e.currentTarget.dataset.index)
      var current = e.currentTarget.dataset.src;    
@@ -107,9 +118,41 @@ Page({
      this.setData({
        photos:photos,
      })
-
    },
-  
+  touchend:function(){
+    if(this.data.tapLock){
+      setTimeout(() => {
+        this.setData({
+          tapLock:false
+        }),100
+      })
+    }
+  },
+   changeHiddenStatus:function(){
+     this.setData({
+       tapLock:true
+     })
+     console.log('这是longPress')
+     var status = this.data.hidden;
+     this.setData({
+       hidden:!status
+     })
+   },
+
+   scale:function(){
+     this.animation.scale(2).step()
+     this.animation.rotate(90).step()
+     this.animation.rotate(-90).step()
+     this.setData({
+       animation:this.animation.export()
+     })
+   },
+
+   rotate:function(){
+     this.animation.rotate(90).step()
+     this.animation.rotate(-90).step()
+      this.setData({ animation: this.animation.export() })
+   },
 
    
 })
