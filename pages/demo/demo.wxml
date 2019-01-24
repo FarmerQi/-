@@ -10,14 +10,17 @@
                   <view class='picContainer'>
                     <block wx:for="{{photos}}" wx:for-item="image" wx:key="*this">
                       <view class='pic'>
-                        <image class='grid-image' src='{{image}}' mode='aspectFill' data-src="{{image}}" bindtap='previewImage'></image>
+                        <image class='grid-image' src='{{image}}' mode='aspectFill' data-src="{{image}}"  bindtap='previewImage' >
+                        </image>
+                        <view class='mask' bindtap='deleteImage'>
+                          <icon class="delete" type='clear' color='red' data-index="{{index}}" bindtap='deleteImage' size='15' ></icon>
+                        </view>
+                        
                       </view>
                     </block>
-                    <block>
                       <view class='addButton'  bindtap='chooseImage'>
                         <view class='addButtonInput'> </view>
                       </view>
-                    </block>
                   </view>
                 </view>
             </view>

@@ -6,6 +6,7 @@ Page({
    */
   data: {
       photos:[],
+      hidden:true,
   },
 
   /**
@@ -90,13 +91,25 @@ Page({
    },
    previewImage:function(e){
      console.log(e);
-     var current = e.currentTarget.dataset.src;
+     console.log(e.currentTarget.dataset.index)
+     var current = e.currentTarget.dataset.src;    
      wx.previewImage({
        current: current,
        urls: this.data.photos,
      })
      console.log(this.data.photos)
-   }
+   },
+   deleteImage:function(e){
+     console.log(e)
+     var index = e.currentTarget.dataset.index;
+     var photos = this.data.photos;
+     photos.splice(index,1);
+     this.setData({
+       photos:photos,
+     })
+
+   },
+  
 
    
 })
