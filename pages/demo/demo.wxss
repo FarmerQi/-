@@ -94,6 +94,31 @@
   overflow: hidden;
 }
 
+.bottomContainer{
+  position: fixed;
+  top: 105%;
+  left: 0;
+  height: 10%;
+  width: 100%;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.finishButton{
+  height: 98%;
+  width: 90%;
+  margin-bottom: 2%;
+  background: skyblue;
+  border-radius: 20rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 
 
 

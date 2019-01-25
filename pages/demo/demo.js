@@ -6,9 +6,11 @@ Page({
    */
   data: {
       animation:{},
+      animationBottom:{},
       photos:[],
       hidden:true,
       tapLock:false,
+      isBottomHide:true,
   },
 
   /**
@@ -24,10 +26,12 @@ Page({
   onReady: function () {
     this.animation = wx.createAnimation({
       duration:500,
-      timingFunction: 'ease',
-      
+      timingFunction: 'ease',      
     })
-    
+    this.animationBottom = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
   },
 
   /**
@@ -137,6 +141,7 @@ Page({
      this.setData({
        hidden:!status
      })
+     this.showButton();
    },
 
    scale:function(){
@@ -154,5 +159,27 @@ Page({
       this.setData({ animation: this.animation.export() })
    },
 
-   
+  hideButton:function(){
+    var height = wx.getSystemInfoSync().windowHeight;
+    var width = wx.getSystemInfoSync().windowWidth;
+    var screenHeight = wx.getSystemInfoSync().screenHeight;
+    var screenWidth = wx.getSystemInfoSync().screenWidth;
+    console.log("height: " + height +"; width: " + width);
+    console.log("screenHeight: " + screenHeight + ";screenWidth: " + screenWidth);
+    var moveHeight = height * 0.15;
+    console.log(moveHeight)
+    this.animationBottom.translateY(moveHeight).step();
+    this.setData({
+      animationBottom: this.animationBottom.export()
+    })
+   },
+   showButton:function(){
+     var height = wx.getSystemInfoSync().windowHeight;
+     var moveHeight = height * 0.15;
+     console.log(moveHeight);
+     this.animationBottom.translateY(-moveHeight).step();
+     this.setData({
+       animationBottom: this.animationBottom.export()
+     })
+   }   
 })

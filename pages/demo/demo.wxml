@@ -17,13 +17,19 @@
                         </view>
                       </view>
                     </block>
-                      <view class='addButton'  bindtap='chooseImage'>
+                      <view class='addButton'  bindtap='chooseImage' >
                         <view class='addButtonInput'> </view>
                       </view>
                   </view>
                 </view>
             </view>
       </view>
+</view>
+<button bindtap='showButton'>点我</button>
+<view class='bottomContainer' animation="{{animationBottom}}" bindtap='hideButton'>
+  <view class='finishButton' >
+    <text>Finish</text>
+  </view>
 </view>
 
 
