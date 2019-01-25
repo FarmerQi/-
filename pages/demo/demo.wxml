@@ -13,7 +13,7 @@
                         <image class='grid-image' src='{{image}}' mode='aspectFill' data-src="{{image}}"  bindtap='previewImage' bindlongtap='changeHiddenStatus'>
                         </image>
                         <view class='mask' hidden='{{hidden}}'>
-                          <icon class="delete" type='clear' color='red' data-index="{{index}}" bindtap='scale' size='20' animation="{{animation}}"></icon>
+                          <icon class="delete" type='clear' color='red' data-index="{{index}}" bindtap='deleteImage' size='{{iconSize}}' animation="{{animation}}"></icon>
                         </view>
                       </view>
                     </block>
@@ -25,7 +25,7 @@
             </view>
       </view>
 </view>
-<button bindtap='showButton'>点我</button>
+
 <view class='bottomContainer' animation="{{animationBottom}}" bindtap='hideButton'>
   <view class='finishButton' >
     <text>Finish</text>

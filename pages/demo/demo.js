@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+      iconSize:20,
       animation:{},
       animationBottom:{},
       photos:[],
@@ -29,7 +30,7 @@ Page({
       timingFunction: 'ease',      
     })
     this.animationBottom = wx.createAnimation({
-      duration: 1000,
+      duration: 400,
       timingFunction: 'ease',
     })
   },
@@ -142,12 +143,21 @@ Page({
        hidden:!status
      })
      this.showButton();
+     this.scale();
    },
 
    scale:function(){
      this.animation.scale(2).step()
      this.animation.rotate(90).step()
      this.animation.rotate(-90).step()
+     this.setData({
+       animation:this.animation.export()
+     })
+   },
+   scaleBack:function(){
+     this.animation.scale(1).step()
+     this.animation.rotate(-90).step()
+     this.animation.rotate(90).step()
      this.setData({
        animation:this.animation.export()
      })
@@ -169,8 +179,16 @@ Page({
     var moveHeight = height * 0.15;
     console.log(moveHeight)
     this.animationBottom.translateY(moveHeight).step();
+    
+    // 使删除图标回复原本状态
+    this.animation.scale(1).step()
+    var status = this.data.hidden;
+    var myThis = this;
     this.setData({
-      animationBottom: this.animationBottom.export()
+      animationBottom: this.animationBottom.export(),
+      animation: this.animation.export(),
+      hidden: !status,
+      
     })
    },
    showButton:function(){
