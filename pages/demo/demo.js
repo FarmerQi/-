@@ -101,6 +101,8 @@ Page({
         },
       })
    },
+
+  //  预览照片
    previewImage:function(e){
      if(this.data.tapLock){
        return;
@@ -115,6 +117,8 @@ Page({
      })
      console.log(this.data.photos)
    },
+
+  //  删除图片
    deleteImage:function(e){
      console.log(e)
      var index = e.currentTarget.dataset.index;
@@ -124,6 +128,8 @@ Page({
        photos:photos,
      })
    },
+
+  //  重写点击事件函数，来解决longtap 和tap冲突
   touchend:function(){
     if(this.data.tapLock){
       setTimeout(() => {
@@ -133,19 +139,32 @@ Page({
       })
     }
   },
+
+  // 改变删除元素的显示状态，同时控制动画流程
    changeHiddenStatus:function(){
-     this.setData({
-       tapLock:true
-     })
-     console.log('这是longPress')
      var status = this.data.hidden;
      this.setData({
-       hidden:!status
+       tapLock:true,
+       hidden: !status
      })
-     this.showButton();
-     this.scale();
+
+     this.animation.scale(2).step()
+     this.animation.rotate(90).step()
+     this.animation.rotate(-90).step()
+     
+
+     var height = wx.getSystemInfoSync().windowHeight;
+     var moveHeight = height * 0.15;
+     console.log(moveHeight);
+     this.animationBottom.translateY(-moveHeight).step();
+
+     this.setData({
+       animation: this.animation.export(),
+       animationBottom: this.animationBottom.export()
+     })
    },
 
+  // 让元素放大2倍并正反旋转90度
    scale:function(){
      this.animation.scale(2).step()
      this.animation.rotate(90).step()
@@ -154,6 +173,8 @@ Page({
        animation:this.animation.export()
      })
    },
+
+  //  与上方函数功能相反
    scaleBack:function(){
      this.animation.scale(1).step()
      this.animation.rotate(-90).step()
@@ -162,13 +183,13 @@ Page({
        animation:this.animation.export()
      })
    },
-
+  // 元素旋转
    rotate:function(){
      this.animation.rotate(90).step()
      this.animation.rotate(-90).step()
       this.setData({ animation: this.animation.export() })
    },
-
+  // 隐藏按钮
   hideButton:function(){
     var height = wx.getSystemInfoSync().windowHeight;
     var width = wx.getSystemInfoSync().windowWidth;
@@ -192,6 +213,8 @@ Page({
       
     })
    },
+
+  //  显示按钮
    showButton:function(){
      var height = wx.getSystemInfoSync().windowHeight;
      var moveHeight = height * 0.15;
