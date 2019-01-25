@@ -203,14 +203,15 @@ Page({
     // 使删除图标回复
     this.animation.scale(1).step()
     
-
+    // longtap 和 tap 的锁
+    var lock = this.data.tapLock;
     var status = this.data.hidden;
     var myThis = this;
     this.setData({
       animationBottom: this.animationBottom.export(),
       animation: this.animation.export(),
       hidden: !status,
-      
+      tapLock: !lock
     })
    },
 

@@ -1,5 +1,10 @@
-<view >
+<view class='main-container'>
 <!-- <view class='fullScreenMask' hidden='{{hidden}}'></view> -->
+<view>
+  <view class='head'>
+    <text>添加车辆详情</text>
+  </view>
+</view>
 <view class='weui-cells'>
       <view class='weui-cell'>
             <view class='weui-cell__bd'>
