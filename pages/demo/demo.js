@@ -30,7 +30,7 @@ Page({
       timingFunction: 'ease',      
     })
     this.animationBottom = wx.createAnimation({
-      duration: 400,
+      duration: 500,
       timingFunction: 'ease',
     })
   },
@@ -179,9 +179,10 @@ Page({
     var moveHeight = height * 0.15;
     console.log(moveHeight)
     this.animationBottom.translateY(moveHeight).step();
-    
-    // 使删除图标回复原本状态
+    // 使删除图标回复
     this.animation.scale(1).step()
+    
+
     var status = this.data.hidden;
     var myThis = this;
     this.setData({

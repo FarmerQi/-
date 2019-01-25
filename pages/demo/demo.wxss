@@ -60,7 +60,7 @@
 
 .addButtonInput{
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   top: 0;
   left: 0;
   width: 100%;
@@ -76,7 +76,7 @@
 .delete{
   z-index: 2;  
   size: 10;
-  
+  opacity: 1;
 }
 
 .mask{
@@ -86,7 +86,7 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  opacity: 0.7;
+  opacity: 0.6;
   background: #000;
   display: flex;
   justify-content: center;
@@ -94,7 +94,31 @@
   overflow: hidden;
 }
 
+.icon-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullScreenMask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.5;
+  background: #000;
+}
+
 .bottomContainer{
+  z-index: 2;
   position: fixed;
   top: 105%;
   left: 0;

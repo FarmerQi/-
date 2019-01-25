@@ -1,4 +1,5 @@
-<!--pages/demo/demo.wxml-->
+<view >
+<!-- <view class='fullScreenMask' hidden='{{hidden}}'></view> -->
 <view class='weui-cells'>
       <view class='weui-cell'>
             <view class='weui-cell__bd'>
@@ -12,9 +13,11 @@
                       <view class='pic'>
                         <image class='grid-image' src='{{image}}' mode='aspectFill' data-src="{{image}}"  bindtap='previewImage' bindlongtap='changeHiddenStatus'>
                         </image>
-                        <view class='mask' hidden='{{hidden}}'>
-                          <icon class="delete" type='clear' color='red' data-index="{{index}}" bindtap='deleteImage' size='{{iconSize}}' animation="{{animation}}"></icon>
+                        <view class='mask' hidden='{{hidden}}'></view>
+                        <view class='icon-container' hidden='{{hidden}}'>
+                        <icon class="delete" type='cancel' color='red' data-index="{{index}}" bindtap='deleteImage' size='{{iconSize}}' animation="{{animation}}"></icon>
                         </view>
+                        
                       </view>
                     </block>
                       <view class='addButton'  bindtap='chooseImage' >
@@ -31,6 +34,4 @@
     <text>Finish</text>
   </view>
 </view>
-
-
-
+</view>
